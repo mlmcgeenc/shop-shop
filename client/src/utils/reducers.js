@@ -4,6 +4,8 @@ import {
 	UPDATE_CURRENT_CATEGORY,
 } from './actions';
 
+import { useReducer } from 'react';
+
 export const reducer = (state, action) => {
 	switch (action.type) {
 		// if action type is 'UPDATE_PRODUCTS', return a new state object with an updated products array
@@ -29,3 +31,7 @@ export const reducer = (state, action) => {
 			return state;
 	}
 };
+
+export function useProductReducer(initialState) {
+	return useReducer(reducer, initialState);
+}
